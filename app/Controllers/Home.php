@@ -6,6 +6,8 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('home');
+        phpinfo();
+        // return function_exists('curl_version');
+        // return view('home');
     }
 }

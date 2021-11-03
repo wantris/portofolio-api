@@ -5,10 +5,17 @@ namespace App\Controllers\Api;
 use App\Models\Profile_model;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
+use App\Controllers\Api\CorsController;
 
 class Profile extends ResourceController
 {
     use ResponseTrait;
+
+    public function __construct()
+    {
+        $cors = new CorsController;
+        $cors->corsHeader();
+    }
 
     public function index()
     {
@@ -36,5 +43,11 @@ class Profile extends ResourceController
 
             return $this->respond($arr, 200);
         }
+    }
+
+    public function cors()
+    {
+        $cors = new CorsController;
+        $cors->corsHeader();
     }
 }

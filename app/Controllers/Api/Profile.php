@@ -13,8 +13,9 @@ class Profile extends ResourceController
 
     public function __construct()
     {
-        $cors = new CorsController;
-        $cors->corsHeader();
+        Header('Access-Control-Allow-Origin: *'); //for allow any domain, insecure
+        Header('Access-Control-Allow-Headers: *'); //for allow any headers, insecure
+        Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
     }
 
     public function index()

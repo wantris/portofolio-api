@@ -27,15 +27,14 @@ class Education extends BaseController
         $validation->setRules(
             [
                 'title' => 'required',
-                'major' => 'required',
                 'final_score' => 'required',
                 'date_start' => "required",
                 'date_end' => "required",
-                'desc' => 'required'
             ]
         );
 
         $isDataValid = $validation->withRequest($this->request)->run();
+
         if ($isDataValid) {
             $news = new EducationModel();
 
